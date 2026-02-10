@@ -100,12 +100,7 @@ local rest,gens,imgs,imgp;
   gens:=GeneratorsOfGroup(U);
   imgs:=List(gens,i->ImageElm(hom,i));
 
-  if HasImagesSource(hom) then
-    imgp:=ImagesSource(hom);
-  else
-    imgp:=Subgroup(Range(hom),imgs);
-  fi;
-  rest:=GroupHomomorphismByImagesNC(U,imgp,gens,imgs);
+  rest:=GroupHomomorphismByImagesNC(U,Range(hom),gens,imgs);
   if HasIsInjective(hom) and IsInjective(hom) then
     SetIsInjective(rest,true);
   fi;
