@@ -95,7 +95,7 @@ end);
 InstallMethod(RestrictedMapping,"create new GHBI",
   CollFamSourceEqFamElms,[IsGroupHomomorphism,IsGroup],0,
 function(hom,U)
-local rest,gens,imgs,imgp;
+local rest,gens,imgs;
 
   gens:=GeneratorsOfGroup(U);
   imgs:=List(gens,i->ImageElm(hom,i));
@@ -103,9 +103,6 @@ local rest,gens,imgs,imgp;
   rest:=GroupHomomorphismByImagesNC(U,Range(hom),gens,imgs);
   if HasIsInjective(hom) and IsInjective(hom) then
     SetIsInjective(rest,true);
-  fi;
-  if HasIsTotal(hom) and IsTotal(hom) then
-    SetIsTotal(rest,true);
   fi;
 
   return rest;
