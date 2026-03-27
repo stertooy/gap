@@ -2439,11 +2439,9 @@ InstallGlobalFunction( ValidatePackageInfo, function( info )
                                        and ForAll( l, IsString ) ),
           "a list of pairs `[ <pkgname>, <pkgversion> ]' of strings" );
       TestOption( record.Dependencies, "NeededSystemPackages",
-          comp -> IsList( comp ) and ForAll( comp,
-                      l -> IsRecord( l ) and
-                           ForAll( RecNames( l ), n -> IsList( l.( n ) ) and
-                                                       ForAll( l.( n ), x -> IsList( x ) and
-                                                                             IsString( First( x ) ) ) ) ),
+          comp -> IsRecord( comp ) and ForAll( RecNames( comp ),
+                      l -> IsList( comp.( l ) ) and ForAll( comp.( l ),
+                               x -> IsList( x ) and IsString( First( x ) ) ) ),
           "a list of records whose values are lists of lists `[ <pkgname>, ... ]`" );
       TestOption( record.Dependencies, "ExternalConditions",
           comp -> IsList( comp ) and ForAll( comp,
