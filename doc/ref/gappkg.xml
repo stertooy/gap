@@ -1182,6 +1182,14 @@ In this situation, loading <C>A</C> forces an attempt to load also <C>B</C>,
 but <C>A</C> is loaded even if <C>B</C> is not available.
 <P/>
 
+If <C>B</C> is not essential for <C>A</C> but is used in the package tests,
+(for example because <C>B</C> is a library of groups used to provide 
+testcases) then the name and the (least) version number of <C>B</C> should
+be added to the <C>TestPackages</C> component of the <C>Dependencies</C>
+component of the <F>PackageInfo.g</F> file of <C>A</C>. No attempts are made
+to actually load <C>B</C>, this should be explicitly in the tests.
+<P/>
+
 All package dependencies must be documented explicitly in the
 <F>PackageInfo.g</F> file. It is important to properly
 identify package dependencies and make the right decision
