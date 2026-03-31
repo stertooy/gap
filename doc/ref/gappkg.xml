@@ -367,6 +367,19 @@ The following components of the record are <E>optional</E>.
     denoting the other packages which shall be loaded together with the
     current package if they are available,
   </Item>
+  <Mark><C>TestPackages</C></Mark>
+  <Item>
+    a list of pairs <C>[ pkgname, pkgversion ]</C> of strings,
+    denoting the packages that are needed only to test the package, but not to
+    load the package,
+  </Item>
+  <Mark><C>NeededSystemPackages</C></Mark>
+  <Item>
+    a record whose components describe operating systems or package managers,
+    e.g. <C>Ubuntu</C> or <C>Homebrew</C>, and whose values are lists of lists
+    <C>[ syspkgname, ... ]</C>, denoting the system packages needed by the
+    &GAP; package,
+  </Item>
   <Mark><C>ExternalConditions</C></Mark>
   <Item>
     a list of strings or of pairs <C>[ text, URL ]</C> of strings,
