@@ -1260,6 +1260,13 @@ dependency, or a list <C>[ description, URL ]</C>, to the
 <C>ExternalConditions</C> component of the <C>Dependencies</C> component of
 the <F>PackageInfo.g</F> file of the &GAP; package.
 
+<Log><![CDATA[
+ExternalConditions := [
+    [ "needs the PARI/GP computer algebra system Version 2.5 or higher",
+      "https://pari.math.u-bordeaux.fr/" ]
+]
+]]></Log>
+
 <P/>
 
 If this dependency is available through a package manager such as <C>apt</C>
@@ -1269,13 +1276,12 @@ the system package to the relevant component (such as <C>Ubuntu</C> or
 <F>PackageInfo.g</F> file of the &GAP; package. Each system package is added
 by means of a list whose first component is the name needed by the package
 manager. The other elements of this list are reserved for future usage.
-An example is provided below.
 
 <Log><![CDATA[
 NeededSystemPackages := rec(
     Ubuntu   := [["pari-gp"]],
     Homebrew := [["pari"]]
-),
+)
 ]]></Log>
 
 </Section>
