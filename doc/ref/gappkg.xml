@@ -1247,6 +1247,22 @@ or what are other ways to disable its loading -->
 
 
 <!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+<Section Label="External dependencies">
+<Heading>External Dependencies (System packages needed by a &GAP; Package)</Heading>
+
+<Index>external dependency</Index>
+<Index>system package</Index>
+<Index Subkey="external">dependencies</Index>
+It is possible for a &GAP; package <C>A</C>
+to require external software <C>E</C>.
+
+<!-- TODO: reference both NeededSystemPackages and ExternalDependencies -->
+<P/>
+
+</Section>
+
+
+<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
 <Section Label="Extensions Provided by a Package">
 <Heading>Extensions Provided by a Package</Heading>
 
