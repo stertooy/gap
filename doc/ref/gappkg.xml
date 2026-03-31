@@ -1253,10 +1253,37 @@ or what are other ways to disable its loading -->
 <Index>external dependency</Index>
 <Index>system package</Index>
 <Index Subkey="external">dependencies</Index>
-It is possible for a &GAP; package <C>A</C>
-to require external software <C>E</C>.
+It is possible for a &GAP; package to require external software. If this
+software is not bundled together with the package, then this dependency
+should be documented in the <F>PackageInfo.g</F> file of the package.
+<P/>
 
-<!-- TODO: reference both NeededSystemPackages and ExternalDependencies -->
+To document such a dependency, one either adds a string describing the
+dependency, or a list <C>[ description, URL ]</C> to the
+<C>ExternalConditions</C> component of the <C>Dependencies</C> component of
+the <F>PackageInfo.g</F> file of the &GAP; package.
+<P/>
+
+If this dependency is available through a package manager such as <C>apt</C>
+or <C>brew/C>, this should also be documented. This can be done by adding
+the system package to the relevant component (such as <C>Ubuntu</C> or
+<C>Homebrew</C>) of the <C>NeededSystemPackages</C> component of the 
+<F>PackageInfo.g</F> file of the &GAP; package. Each system package is added
+by means of a list whose first component is the name needed by the package
+manager. The other elements of this list are reserved for future usage.
+An example is provided below.
+
+<Log><![CDATA[
+NeededSystemPackages := rec(
+    Ubuntu   := [["pari-gp"]],
+    Homebrew := [["pari"]]
+),
+]]></Log>
+
+<!-- Dependencies has component NeededSystemPackages, which is a record.
+    This record can have components "Ubuntu" and "Homebrew", each of these
+    components is a list of lists [ syspkgname, ... ] -->
+
 <P/>
 
 </Section>
