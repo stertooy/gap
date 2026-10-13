@@ -149,9 +149,9 @@ local r,i,j,u,f,q,n,lim,sel,nat,ok,mi;
      CanEasilyComputePcgs(g) then
     return MinimalGeneratingSet(g);
   fi;
-  # refuse cyclic groups
-  if IsCyclic(g) then
-    TryNextMethod();
+  # discovered cyclic, redo
+  if not HasIsCyclic(g) and IsCyclic(g) then
+    return MinimalGeneratingSet(g);
   fi;
   # start at rank 2/abelian rank
   n:=AbelianInvariants(g);
